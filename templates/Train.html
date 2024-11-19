@@ -1,0 +1,53 @@
+{% extends 'base_layout2.html' %}
+{% block content %}
+<div class="con">
+    <h5>Train Models for Heart Disease Prediction</h5>
+    <br>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="waves-effect waves-light btn-small black">Train Models</button>
+    </form>
+
+    <br>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if trained_models %}
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Model Type</th>
+                    <th>Accuracy</th>
+                    <th>Parameters</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model in trained_models %}
+                <tr>
+                    <td>{{ model.model_type }}</td>
+                    <td>{{ model.accuracy|floatformat:4 }}</td>
+                    <td>
+                        {% if model.model_type == 'Logistic Regression' %}
+                            Learning Rate: {{ model.learning_rate }}, Iterations: {{ model.iterations }}
+                        {% elif model.model_type == 'Decision Tree' %}
+                            Max Depth: {{ model.max_depth }}
+                        {% elif model.model_type == 'Random Forest' %}
+                            Max Depth: {{ model.max_depth }}, N Estimators: {{ model.n_estimators }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No trained models available. Click the button above to train models.</p>
+    {% endif %}
+</div>
+{% endblock %}

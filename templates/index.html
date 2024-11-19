@@ -1,0 +1,97 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  /* Custom styles for hospital theme */
+  body {
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text */
+  }
+
+  .slider {
+    background-color: #ffffff; /* White background for slider */
+    height: 600px; /* Increase height of the slider */
+    overflow: hidden; /* Hide overflow */
+  }
+
+  .slider img {
+    width: 100%; /* Ensure the image covers the full width */
+    height: 100%; /* Ensure the image covers the full height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+
+  .btn-large {
+    background-color: #00796b; /* Teal color for buttons */
+  }
+
+  .btn-large:hover {
+    background-color: #004d40; /* Darker teal on hover */
+  }
+
+  .icon-block {
+    border: 1px solid #ddd; /* Light border for icon blocks */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    background-color: #ffffff; /* White background for icon blocks */
+  }
+
+  .white-text {
+    color: #ffffff !important; /* Ensure white text color */
+  }
+
+  .blue-text {
+    color: #0277bd; /* Teal color for headings */
+  }
+</style>
+
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="{% static 'img/opit.jpg' %}" alt="Healthcare Background">
+
+      <div class="caption left-align">
+        <br><br><br>
+        <h2 class="blue-text">Register To Predict Your Heart Disease Now</h2>
+        <br>
+        <a class="white-text waves-effect waves-light btn-large" href="{% url 'signup' %}">Signup</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- OUR SERVICES -->
+<section>
+  <div class="row width_content" style="width: 90%; margin: auto;">
+    <div class="col m4 s12 l4">
+      <div class="icon-block">
+        <h2 class="center blue-text"><i class="medium material-icons">devices_other</i></h2>
+        <h5 class="center"><b>Easy</b></h5>
+        <p style="margin-left: 15px; margin-right: 15px; text-align: justify;">
+          Heart Disease Prediction System (HDPS) has a clean and simple user-friendly interface. Users with basic computer and internet knowledge can easily navigate through HDPS to benefit from it.
+        </p>
+      </div>
+    </div>
+
+    <div class="col m4 s12 l4">
+      <div class="icon-block">
+        <h2 class="center blue-text"><i class="medium material-icons">dvr</i></h2>
+        <h5 class="center"><b>Reliable</b></h5>
+        <p style="margin-left: 15px; margin-right: 15px; text-align: justify;">
+          HDPS is reliable as it uses Machine Learning Technology to predict heart disease with high accuracy. Though it may not be 100% accurate, it provides a useful estimate of potential heart disease.
+        </p>
+      </div>
+    </div>
+
+    <div class="col m4 s12 l4">
+      <div class="icon-block">
+        <h2 class="center blue-text"><i class="medium material-icons">menu_book</i></h2>
+        <h5 class="center"><b>Fast</b></h5>
+        <p style="margin-left: 15px; margin-right: 15px; text-align: justify;">
+          HDPS processes the data quickly. After entering the required 13 attributes, it provides the probability of heart disease within seconds.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

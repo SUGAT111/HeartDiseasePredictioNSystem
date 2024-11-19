@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>HDPS</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+  
+    .card {
+      background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for card */
+      color: #fff; /* White text inside the card */
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .input-field input {
+      color: #fff; /* White text for input fields */
+    }
+
+    .input-field label {
+      color: #ddd; /* Light grey labels for input fields */
+    }
+
+    .input-field input:focus + label {
+      color: #fff; /* White label color when input is focused */
+    }
+
+    .btn {
+      background-color: #0277bd; /* Blue button color */
+    }
+
+    .btn:hover {
+      background-color: #01579b; /* Darker blue on hover */
+    }
+
+    .card-content .red-text {
+      color: #ff5252; /* Red color for error messages */
+    }
+  </style>
+   
+</head>
+<body>
+ 
+  <div class="row">
+    <div class="col s12 m4 push-m4 l3 push-l4" style="
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    ">
+      <div class="card hoverable">
+        <div class="card-content">
+          <form action="" id="signin" method="POST">
+            <h5 class="center">Sign In</h5>
+            <div>
+              <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input required id="icon_prefix" type="text" class="validate" name="username">
+                <label for="icon_prefix">Username</label>
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">vpn_key</i>
+                <input required id="icon_email" type="password" class="validate" name="password">
+                <label for="icon_email">Password</label>
+              </div>
+
+              <div>
+                <p>
+                  {% if messages %}
+                    {% for message in messages %}
+                      <p class="red-text">{{ message }}</p>
+                      <br>
+                    {% endfor %}
+                  {% endif %}
+                  <label>
+                    <input type="checkbox" />
+                    <span>Remember Me</span>
+                  </label>
+                </p>
+              </div>
+              <br>
+              <div class="center-align">
+                {% csrf_token %}
+                <button class="btn waves-effect waves-light" type="submit" name="action">Sign In
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+       
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/9478bf204b.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+</body>
+</html>

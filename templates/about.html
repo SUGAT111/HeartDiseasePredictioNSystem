@@ -1,0 +1,78 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="slider sliderv z-depth-3">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'img/patient.jpg' %}">
+        <div class="caption center-align">
+          <h3>About HDPS</h3>
+          <h5 class="light grey-text text-lighten-3">
+            Discover how the Heart Disease Prediction System (HDPS) can assist you in understanding your heart health. 
+            Learn about our system’s features and how it provides valuable insights, all at no cost.
+          </h5>
+        </div>
+      </li>
+    </ul>
+</section>
+
+<br><br>
+
+<!-- What is HDPS? -->
+<section>
+    <h2 class="center-align blue-text">What is HDPS?</h2>
+</section>
+<br>
+<section>
+    <div class="row">
+        <div class="col s4 m4 l4 offset-s4 offset-l4 offset-m4"><hr></div><br><br><br>
+    </div>
+
+    <div class="row" style="width: 85%; margin: auto;">
+        <div class="col s12 m6">
+            <img src="{% static 'img/sthe.jpg' %}" class="responsive-img">
+        </div>
+        <div class="col s12 m5 offset-m1">
+            <p style="font-size:20px; text-align: justify;">
+                The Heart Disease Prediction System (HDPS) is a sophisticated yet user-friendly web-based application. 
+                It leverages Logistic Regression, a powerful Machine Learning algorithm, to predict the likelihood of heart disease. 
+                By analyzing 13 key parameters—including blood pressure, age, and cholesterol levels—HDPS processes patient data to provide 
+                an insightful estimate of heart disease risk. Whether you're looking for a preliminary assessment or a tool to support ongoing health management, 
+                HDPS is designed to meet your needs with ease and reliability.
+            </p>
+        </div>
+    </div>
+</section>
+
+<br><br><br>
+
+<!-- How to Use HDPS -->
+<section>
+    <h2 class="center-align blue-text">How Can You Use HDPS?</h2>
+</section>
+<br>
+<section>
+    <div class="row">
+        <div class="col s4 m4 l4 offset-s4 offset-l4 offset-m4"><hr></div><br><br><br>
+    </div>
+    <div class="row" style="width: 85%; margin: auto;">
+        <div class="col s12 m5">
+            <p style="font-size:20px; text-align: justify;">
+                Using HDPS is simple and accessible to anyone with an internet-enabled device. 
+                To get started, enter accurate values for 13 different attributes, such as your age, sex, blood pressure, and cholesterol level. 
+                HDPS will analyze this data and provide a probability score indicating your risk of heart disease. 
+                If you wish to save your results for future reference or receive tailored guidance, 
+                consider signing up for an account. This will allow you to access additional features that can support your ongoing health journey.
+            </p>
+        </div>
+        <div class="col s12 m6 offset-m1">
+            <img src="{% static 'img/userim.jpg' %}" class="responsive-img">
+        </div>
+    </div>
+</section>
+
+<br><br><br><br>
+
+{% endblock %}

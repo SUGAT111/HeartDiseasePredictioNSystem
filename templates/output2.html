@@ -1,0 +1,113 @@
+{% extends 'base_layout2.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+    footer {
+        padding-left: 295px;
+    }
+    .con {
+        width: 90%;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Ensure elements wrap on smaller screens */
+    }
+    @media only screen and (max-width: 992px) {
+        .con, footer {
+            padding-left: 0;
+            flex-direction: column;
+        }
+    }
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        background-image: url("{% static 'img/sthe.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+    .text-container, .doctor-hospital-container, .btn-container {
+        width: 100%; /* Make containers take full width by default */
+        max-width: 800px; /* Set a max width for better readability */
+        margin: 10px auto; /* Center align content with margin */
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+    .text-container {
+        background-color: #e3f2fd;
+        color: #0d47a1;
+    }
+    .btn-container {
+        background-color: #e8f5e9;
+        color: #1b5e20;
+    }
+    .doctor-hospital-container {
+        background-color: #f9fbe7; /* Light yellow for distinction */
+        color: #827717; /* Olive for emphasis */
+    }
+    .text-left {
+        text-align: left;
+    }
+    /* Style for buttons */
+    .btn {
+        display: inline-flex; /* Ensures text and icon align in one row */
+        align-items: center; /* Vertically center align the text and icon */
+        gap: 8px; /* Adds space between text and icon */
+        background-color: #007bff; /* Blue background for a professional look */
+        color: #fff; /* White text color */
+        padding: 10px 20px; /* Add padding for a better look */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        text-decoration: none; /* Remove underline */
+        margin: 5px 0; /* Add some margin for spacing */
+        font-size: 16px; /* Adjust font size for better readability */
+        cursor: pointer; /* Pointer cursor for buttons */
+    }
+    .btn:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        color: #fff; /* White text color on hover */
+    }
+    .btn i {
+        font-size: 18px; /* Ensure icon size matches the text */
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="con">
+    <div class="text-container text-left">
+        <h5>{{ model_used }}</h5>
+        <h5>Your probability of having Heart Disease is {{ output1 }}</h5>
+        <h5>Accuracy of logistic regression model is {{ accuracy }}</h5>
+    </div>
+
+    <div class="doctor-hospital-container text-left">
+        <h5>Resources for Your Health:</h5>
+        <a class="btn" href="{% url 'doctorhospital' %}">View Doctors & Hospitals
+            <i class="material-icons right">local_hospital</i>
+        </a>
+    </div>
+
+    <div class="btn-container">
+        <h5>Probability of having Heart Disease is {{ danger }},
+            {% if danger == 'low' %}
+                <br> Please continue your healthy habit.
+            {% endif %}
+            {% if danger == 'high' %}
+                <br> For further assistance, click below.
+            {% endif %}
+        </h5>
+        {% if danger == 'high' %}
+            <a class="btn" href="{% url 'prevention' %}">View Prevention
+                <i class="material-icons right">healing</i>
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

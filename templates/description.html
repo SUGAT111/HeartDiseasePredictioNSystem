@@ -1,0 +1,53 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+      
+      
+      {% block content %}
+<section>
+    <h2 class="center-align"> HDPS मा प्रयोग हुने मुख्य प्यारामिटरहरू</h2>
+</section>
+<br>
+<section>
+    <div class="row">
+        <div class="col s4 m4 l4 offset-s4 offset-l4 offset-m4">
+            <hr>
+        </div>
+        <br> <br> <br>
+    </div>
+    <div class="row" style="width: 85%; margin: auto;">
+        <div class="col s12">
+            <p style="font-size:20px; text-align: justify;">
+                HDPS मा मुटु रोगको सम्भावना पूर्वानुमान गर्न १३ मुख्य प्यारामिटरहरूको प्रयोग गरिन्छ। यी प्यारामिटरहरूले 
+                बिरामीको स्वास्थ्य अवस्थाको विस्तृत जानकारी दिन्छन्, जसले गर्दा पूर्वानुमानलाई थप प्रभावकारी बनाउँछ। यी 
+                प्यारामिटरहरू निम्नानुसार छन्:
+            </p>
+            <ul style="font-size:18px; text-align: justify;">
+                <li><strong>उमेर (Age):</strong> बिरामीको उमेर, जुन मुटु रोगको जोखिमलाई प्रभावित गर्ने मुख्य कारक हो।</li>
+                <li><strong>लिंग (Sex):</strong> पुरुष र महिलाहरूको बीचमा मुटु रोगको जोखिम फरक हुन्छ, जसलाई प्रणालीले ध्यानमा राख्छ।</li>
+                <li><strong>छातीमा दुखाइको प्रकार (Chest Pain Type - CP):</strong> छातीमा दुखाइको विभिन्न प्रकारहरूलाई मूल्याङ्कन गरेर 
+                मुटु रोगको सम्भावना निर्धारण गरिन्छ।</li>
+                <li><strong>आराम रक्तचाप (Resting Blood Pressure - Trestbps):</strong> आरामको अवस्थामा मापन गरिएको 
+                रक्तचाप, जुन उच्च भएमा मुटु रोगको सम्भावना बढ्न सक्छ।</li>
+                <li><strong>कोलेस्ट्रोल (Cholesterol - Chol):</strong> रक्तमा भएका कुल कोलेस्ट्रोलको स्तर, जुन मुटु रोगको जोखिमसँग सम्बन्धित छ।</li>
+                <li><strong>रक्तमा चिनीको स्तर (Fasting Blood Sugar - FBS):</strong> रक्तमा चिनीको स्तर (१०० mg/dl भन्दा 
+                माथि भएमा), जुन मधुमेह र मुटु रोगको जोखिममा महत्वपूर्ण छ।</li>
+                <li><strong>ईसीजी परिणाम (Resting Electrocardiographic Results - Restcg):</strong> आरामको अवस्थामा 
+                गरिएको ECG (इलेक्ट्रोकार्डियोग्राम) को परिणाम, जुन मुटुको स्वास्थ्यको जानकारी दिन्छ।</li>
+                <li><strong>अधिकतम हृदय गति (Maximum Heart Rate - Thalach):</strong> व्यायाम गर्दा प्राप्त गरिएको 
+                अधिकतम हृदय गति, जुन मुटुको क्षमतालाई मापन गर्दछ।</li>
+                <li><strong>व्यायामको क्रममा एनजाइना (Exercise Induced Angina - Exang):</strong> व्यायाम गर्दा 
+                छातीमा दुखाइ (एनजाइना) को उपस्थितिलाई मापन गर्ने, जसले मुटुको स्थिति स्पष्ट पार्न सक्छ।</li>
+                <li><strong>आरामपछि हुने अवसाद (Depression Induced by Exercise - Oldpeak):</strong> व्यायाम पछि 
+                प्राप्त भएको ST-सेगमेन्टको अवसादको मात्रा, जुन मुटुको रक्त प्रवाहको स्थिति बताउँछ।</li>
+                <li><strong>एसटी सेगमेन्टको झुकाव (Slope of ST Segment - Slope):</strong> व्यायाम पछि ST-सेगमेन्टको 
+                झुकाव, जुन मुटुको स्वास्थ्यको महत्वपूर्ण सूचक हो।</li>
+                <li><strong>फ्लुरोस्कोपीद्वारा रंगिएको मुख्य रगत वाहिनीहरूको संख्या (Number of Major Vessels Colored by Fluoroscopy - CA):</strong> 
+                फ्लुरोस्कोपी प्रयोग गरेर रंगिएको मुख्य रगत वाहिनीहरूको संख्या, जसले रगत प्रवाहको स्थिति देखाउँछ।</li>
+                <li><strong>थालसेमिया (Thalassemia - Thal):</strong> थालसेमियाको प्रकार (ठूलो, सानो, सामान्य), जसले 
+                रक्तको अवस्था र मुटुको जोखिममा भूमिका खेल्न सक्छ।</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

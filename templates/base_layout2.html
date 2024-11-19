@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Include Materialize JS -->
+  <script src="{% static 'js/materialize.min.js' %}"></script>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  {% block css %}
+  {% endblock %}
+  <style> 
+    footer {
+        padding-left: 295px;
+    }
+    .con{
+        padding-left: 360px;
+        width: 95%;
+    }
+    @media only screen and (max-width : 992px) {
+      .con, footer {
+        padding-left: 0;
+      }
+    }
+
+    /* Background color for the body */
+    body {
+        background-color: #f0f4f7; /* Light blue-gray background */
+        color: #2c3e50; /* Dark blue-gray text for readability */
+    }
+
+    /* Navbar styling */
+    .navbar-fixed .nav-wrapper {
+        background-color: #0d47a1; /* Dark blue for the navbar */
+    }
+    .nav-wrapper a.brand-logo {
+        color: #ffffff; /* White text for the logo */
+        font-weight: bold;
+    }
+    .nav-wrapper ul li a {
+        color: #ffffff; /* White text for navbar links */
+    }
+    .nav-wrapper ul li a:hover {
+        background-color: #1e88e5; /* Lighter blue for hover effect */
+    }
+
+    /* Sidebar (sidenav) styling */
+    .sidenav.sidenav-fixed {
+        background-color: #e3f2fd; /* Light blue background */
+    }
+    .sidenav .user-view {
+        background-color: #0d47a1; /* Dark blue background for user section */
+    }
+    .sidenav .user-view a {
+        color: #ffffff; /* White text for user info */
+    }
+    .sidenav a {
+        color: #0d47a1; /* Dark blue text for links */
+        font-weight: 600;
+    }
+    .sidenav a:hover {
+        background-color: #bbdefb; /* Very light blue for hover effect */
+    }
+
+    /* Footer styling */
+    .page-footer {
+        background-color: #0d47a1; /* Dark blue footer */
+    }
+    .page-footer .white-text {
+        color: #ffffff !important; /* Ensure white text in footer */
+    }
+    .page-footer .grey-text.text-lighten-4 {
+        color: #cfd8dc !important; /* Light gray text for footer links */
+    }
+    .page-footer a {
+        color: #bbdefb; /* Light blue links in footer */
+    }
+    .page-footer a:hover {
+        color: #ffffff; /* White on hover */
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- Nav Bar-->
+  <div class="navbar-fixed">
+    <nav class="nav-wrapper blue darken-4"> <!-- Changed the color to dark blue -->
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" style="padding-left: 100px;" class="brand-logo white-text">Heart Disease Prediction System</a> <!-- Changed the text color to white -->
+                <a href="" data-target="mobile-nav" class="sidenav-trigger">
+                    <i class="material-icons white-text">menu</i> <!-- Changed the icon color to white -->
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'about' %}" class="white-text">About</a></li> <!-- Changed the link color to white -->
+                    <li><a href="{% url 'contact' %}" class="white-text">Contact</a></li> <!-- Changed the link color to white -->
+                    <a class="waves-effect waves-dark btn white black-text" href="/signout"><b>SIGN OUT</b></a> <!-- White button with black text -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<ul id="mobile-nav" class="sidenav blue lighten-5"> <!-- Light blue background for the mobile menu -->
+    <li><a href="about.html" class="blue-text text-darken-4">AboutUs</a></li> <!-- Dark blue text for the links -->
+    <li><a href="contact.html" class="blue-text text-darken-4">ContactUs</a></li> <!-- Dark blue text for the links -->
+    <a class="waves-effect waves-light btn blue darken-4 white-text" style="margin-left: 27px; margin-top: 7px;">SIGN OUT</a> <!-- Dark blue button with white text -->
+</ul>
+
+          
+      
+      <!-- SIDE NAV BAR-->
+
+      <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li><div class="user-view">
+          <div class="background">
+            <img src="{% static 'img/about.png' %}">
+          </div>
+          <a href="#user"><img class="circle" src="{% static 'img/userim.jpg' %}"></a>
+          <a href="#name"><span class="white-text name">User : {{ request.user.username }}</span></a>
+          <a href="#email"><span class="white-text email">{{ request.user.email }}</span></a>
+        </div></li> 
+        <br> 
+
+        <li><div class="divider"></div></li>
+ 
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'description' %}"><i class="material-icons black-text">info</i> Description of Input </a></li>
+
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="/"><i class="material-icons black-text">batch_prediction</i> Predict Heart Disease </a></li>
+
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'record' %}"><i class="material-icons black-text">history</i> Previous Record </a></li>
+
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'symptoms' %}"><i class="material-icons black-text">assignment_late</i> Symptoms  </a></li>
+
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" href="{% url 'prevention' %}"><i class="material-icons black-text">local_pharmacy</i> Prevention   </a></li>
+
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" 
+         href="{% url 'doctorhospital' %}"
+          ><i class="material-icons black-text">local_hospital</i> Doctors & Hospitals   </a></li>
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" 
+          href="{% url 'Train' %}"
+          ><i class="material-icons black-text">local_hospital</i> Train Data   </a></li>
+        <li><a style="font-weight: 600; font-size: 18px; height: 70px; padding-top: 10px;" class="waves-effect hoverable" 
+          href="{% url 'Test' %}"
+          ><i class="material-icons black-text">local_hospital</i> Test Data   </a></li>
+
+        <li><div class="divider"></div></li>
+      </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        
+    {% block content %}
+    {% endblock %}
+    
+    <!-- footer -->  
+    <section> 
+      <footer class=" hide-on-small-only page-footer">
+        <div class="" style="width: 90%; margin: auto;">
+          <div class="row">
+            <div class="col s12 m6 l3">
+              <h5 class="white-text">HDPS</h5>
+              <p class="grey-text text-lighten-4">Heart Disease Prediction System (HDPS) is a user-friendly web-based application that predicts heart disease using Machine Learning algorithms (ML).</p>
+            </div>
+            <div class="col l2 m6 s12 offset-l1">
+              <h5 class="white-text">Quick Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Privacy</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Signin</a></li>
+              </ul>
+            </div>
+            <div class="col l2 m6 s12">
+              <h5 class="white-text">Contacts</h5>
+              <ul>
+                <li>Kathmandu, Nepal</li>
+                <li>HDPS@gmail.com</li>
+                <li>987377373</li>
+              </ul>     
+            </div>
+            <div class="col l3 m6 s12 offset-l1">
+              <h5 class="white-text">Visit Us</h5>
+              <br>
+              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;"  class="fab fa-youtube-square fa-2x"></i></a>
+              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-instagram-square fa-2x"></i></a>
+              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-linkedin fa-2x"></i></a>
+              <a href="https://www.youtube.com/" target="_blank"> <i style="color: white; margin: 5px 10px;" class="fab fa-twitter-square fa-2x"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <script src="https://kit.fontawesome.com/8ad4094933.js" crossorigin="anonymous"></script> 
+</body>
+</html>

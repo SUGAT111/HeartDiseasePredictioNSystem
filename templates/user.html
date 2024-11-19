@@ -1,0 +1,273 @@
+{% extends 'base_layout2.html' %}
+{% block content %}
+{% load static %}
+
+<div class="con">
+  <style>
+    .input-field input[type="text"],
+    .input-field input[type="number"],
+    .input-field input[type="email"],
+    .input-field input[type="password"],
+    .input-field textarea,
+    .input-field select {
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #333;
+      color: #333;
+    }
+    .input-field input[type="text"]:focus,
+    .input-field input[type="number"]:focus,
+    .input-field input[type="email"]:focus,
+    .input-field input[type="password"]:focus,
+    .input-field textarea:focus,
+    .input-field select:focus {
+      border-bottom: 1px solid #333;
+      box-shadow: 0 1px 0 0 #333;
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: #04aa6d;
+    } /* Green */
+    .button2 {
+      background-color: #008cba;
+    } /* Blue */
+  </style>
+
+  <img
+    src="{% static 'img/logo.jpg' %}"
+    style="position: absolute; width: 100%; height: auto; z-index: -1"
+    alt="Background Image"
+  />
+
+  <div
+    style="
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <h5 style="padding-left: 150px; color: #333">
+      For accurate results, please fill in the following data correctly.
+    </h5>
+    <br />
+
+    <div style="width: 70%; margin: auto" class="row">
+      <form class="col s12" method="POST">
+
+        <!-- Age Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">calendar_today</i>
+            {{ form.age }}
+            <label for="a1" style="color: #333">Age</label>
+            <span class="helper-text" style="color: #777">
+              Enter your age here (1-120)
+              <br>
+              तपाईंको उमेर यहाँ प्रविष्ट गर्नुहोस् (1-120)
+            </span>
+          </div>
+        </div>
+
+        <!-- Sex Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">person</i>
+            {{ form.sex }}
+            <label for="a2" class="active" style="color: #333">Sex</label>
+            <span class="helper-text" style="color: #777">
+              Select your sex (Male or Female)
+              <br>
+              तपाईंको लिङ्ग चयन गर्नुहोस् (पुरुष वा महिला)
+            </span>
+          </div>
+        </div>
+
+        <!-- CP Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">favorite</i>
+            {{ form.cp }}
+            <label for="a3" class="active" style="color: #333">Chest Pain Type</label>
+            <span class="helper-text" style="color: #777">
+              Select the type of chest pain
+              <br>
+              छातीको दर्दको प्रकार चयन गर्नुहोस्
+            </span>
+          </div>
+        </div>
+
+        <!-- RestBP Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">local_hospital</i>
+            {{ form.trestbps }}
+            <label for="a4" style="color: #333">Resting Blood Pressure (mmHg)</label>
+            <span class="helper-text" style="color: #777">
+              Enter your resting blood pressure (80-200 mmHg)
+              <br>
+              तपाईंको विश्रामको रक्तचाप प्रविष्ट गर्नुहोस् (80-200 mmHg)
+            </span>
+          </div>
+        </div>
+
+        <!-- Cholesterol Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">healing</i>
+            {{ form.chol }}
+            <label for="a5" style="color: #333">Cholesterol (mg/dl)</label>
+            <span class="helper-text" style="color: #777">
+              Enter your cholesterol level (100-600 mg/dl)
+              <br>
+              तपाईंको कोलेस्ट्रोल स्तर प्रविष्ट गर्नुहोस् (100-600 mg/dl)
+            </span>
+          </div>
+        </div>
+
+        <!-- FBS Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">opacity</i>
+            {{ form.fbs }}
+            <label for="a6" class="active" style="color: #333">Fasting Blood Sugar</label>
+            <span class="helper-text" style="color: #777">
+              Select your fasting blood sugar level (0 for < 120 mg/dl, 1 for > 120 mg/dl)
+              <br>
+              तपाईंको उपवास रक्तचाप स्तर चयन गर्नुहोस् (0 < 120 mg/dl को लागि, 1 > 120 mg/dl को लागि)
+            </span>
+          </div>
+        </div>
+
+        <!-- RestCG Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">graphic_eq</i>
+            {{ form.restcg }}
+            <label for="a7" class="active" style="color: #333">Resting Electrocardiographic Results</label>
+            <span class="helper-text" style="color: #777">
+              Select your resting ECG results
+              <br>
+              तपाईंको विश्राम ECG परिणाम चयन गर्नुहोस्
+            </span>
+          </div>
+        </div>
+
+        <!-- Thalach Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">fitness_center</i>
+            {{ form.thalach }}
+            <label for="a8" style="color: #333">Maximum Heart Rate Achieved (bpm)</label>
+            <span class="helper-text" style="color: #777">
+              Enter your maximum heart rate (60-220 bpm)
+              <br>
+              तपाईंको अधिकतम हृदय दर प्रविष्ट गर्नुहोस् (60-220 bpm)
+            </span>
+          </div>
+        </div>
+
+        <!-- Exang Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">directions_run</i>
+            {{ form.exang }}
+            <label for="a9" class="active" style="color: #333">Exercise Induced Angina</label>
+            <span class="helper-text" style="color: #777">
+              Select if you have exercise-induced angina (Yes or No)
+              <br>
+              यदि तपाइँसँग व्यायामले प्रेरित एन्जाइन छ भने चयन गर्नुहोस् (हो वा होइन)
+            </span>
+          </div>
+        </div>
+
+        <!-- Oldpeak Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">show_chart</i>
+            {{ form.oldpeak }}
+            <label for="a10" style="color: #333">ST Depression Induced by Exercise</label>
+            <span class="helper-text" style="color: #777">
+              Enter the ST depression value (0.0-6.0)
+              <br>
+              व्यायामले प्रेरित ST अवसाद मान प्रविष्ट गर्नुहोस् (0.0-6.0)
+            </span>
+          </div>
+        </div>
+
+        <!-- Slope Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">trending_up</i>
+            {{ form.slope }}
+            <label for="a11" class="active" style="color: #333">Slope of the Peak Exercise ST Segment</label>
+            <span class="helper-text" style="color: #777">
+              Select the slope of the peak exercise ST segment
+              <br>
+              शीर्ष व्यायाम ST खण्डको ढलान चयन गर्नुहोस्
+            </span>
+          </div>
+        </div>
+
+        <!-- Ca Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">filter_tilt_shift</i>
+            {{ form.ca }}
+            <label for="a12" style="color: #333">Number of Major Vessels (0-3)</label>
+            <span class="helper-text" style="color: #777">
+              Enter the number of major vessels colored by fluoroscopy (0-3)
+              <br>
+              फ्लुओरोस्कोपीद्वारा रंगिएको प्रमुख रक्तनलीहरूको संख्या प्रविष्ट गर्नुहोस् (0-3)
+            </span>
+          </div>
+        </div>
+
+        <!-- Thal Field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #333">favorite_border</i>
+            {{ form.thal }}
+            <label for="a13" class="active" style="color: #333">Thalassemia</label>
+            <span class="helper-text" style="color: #777">
+              Select the type of Thalassemia
+              <br>
+              थालासेमिया प्रकार चयन गर्नुहोस्
+            </span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        {% csrf_token %}
+        <button
+          class="btn waves-effect waves-light button button1"
+          type="submit"
+          name="action"
+        >
+          Submit
+          <i class="material-icons right">send</i>
+        </button>
+
+      </form>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll("select");
+        var instances = M.FormSelect.init(elems);
+      });
+    </script>
+  </div>
+</div>
+
+{% endblock %}
